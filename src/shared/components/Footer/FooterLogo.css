@@ -1,0 +1,25 @@
+.footer-container__logo a {
+    color: white !important;
+    display: flex; /* Add flex display */
+    align-items: center; /* Align items vertically */
+    text-align: center;
+    text-decoration: none;
+  }
+  
+  .logo-footer {
+    width: 50px; /* Width of the logo image */
+    height: 50px; /* Height of the logo image */
+    object-fit: cover; /* Ensures the image covers the area without distortion */
+    margin-right: 5px;
+  }
+  
+  .footer-copyright{
+    color: white;
+    padding: 1rem;
+    text-align: center;
+
+  }
+
+  .footer-copyright__text{
+    margin-left: 0rem;
+  }

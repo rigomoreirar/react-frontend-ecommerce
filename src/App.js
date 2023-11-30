@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import {
   BrowserRouter as Router,
   Route,
@@ -6,41 +6,30 @@ import {
   Switch
 } from 'react-router-dom';
 
-import Users from './user/pages/Users';
-import NewPlace from './places/pages/NewPlace';
-import UserPlaces from './places/pages/UserPlaces';
-import UpdatePlace from './places/pages/UpdatePlace';
+import UserPage from './user/pages/UserPage';
+import NewPlace from './products/pages/NewPlace';
+import UserPlaces from './products/pages/UserPlaces';
+import UpdatePlace from './products/pages/UpdatePlace';
+import MainPage from './products/pages/MainPage';
 import Auth from './user/pages/Auth';
-import MainNavigation from './shared/components/Navigation/MainNavigation';
+import Header from './shared/components/Header/MainNavigation';
+import Footer from './shared/components/Footer/MainFooter';
 import { AuthContext } from './shared/context/auth-context';
+import { useAuth } from './shared/hooks/auth-hook';
 
 const App = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  const login = useCallback(() => {
-    setIsLoggedIn(true);
-  }, []);
-
-  const logout = useCallback(() => {
-    setIsLoggedIn(false);
-  }, []);
+  const { token, login, logout, userId } = useAuth();
 
   let routes;
 
-  if (isLoggedIn) {
+  if (token) {
     routes = (
       <Switch>
         <Route path="/" exact>
-          <Users />
+          <MainPage />
         </Route>
-        <Route path="/:userId/places" exact>
-          <UserPlaces />
-        </Route>
-        <Route path="/places/new" exact>
-          <NewPlace />
-        </Route>
-        <Route path="/places/:placeId">
-          <UpdatePlace />
+        <Route path="/user/:userId">
+          <UserPage />
         </Route>
         <Redirect to="/" />
       </Switch>
@@ -49,7 +38,7 @@ const App = () => {
     routes = (
       <Switch>
         <Route path="/" exact>
-          <Users />
+          <MainPage />
         </Route>
         <Route path="/:userId/places" exact>
           <UserPlaces />
@@ -64,11 +53,18 @@ const App = () => {
 
   return (
     <AuthContext.Provider
-      value={{ isLoggedIn: isLoggedIn, login: login, logout: logout }}
+      value={{
+        isLoggedIn: !!token,
+        token: token,
+        userId: userId,
+        login: login,
+        logout: logout
+      }}
     >
       <Router>
-        <MainNavigation />
+        <Header />
         <main>{routes}</main>
+        <Footer />
       </Router>
     </AuthContext.Provider>
   );

@@ -1,0 +1,72 @@
+.nav-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-links li {
+  margin: 1rem;
+}
+
+.nav-links a {
+  color: white; /* Font color */
+  text-decoration: none;
+  padding: 0.5rem;
+  background-color: #6e9fc1; /* Button background color */
+  border-radius: 5px; /* Rounded corners */
+  display: flex; /* To align img and text properly */
+  align-items: center; /* Center items vertically */
+  transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effects */
+  min-height: 4rem; /* Ensuring consistent vertical size */
+}
+
+.nav-links a:hover {
+  background-color: #a3cae9; /* Background color on hover */
+  color: black; /* Font color on hover */
+}
+
+.nav-links a:hover img {
+  filter: none; /* Remove filter to show original image color on hover */
+}
+
+.nav-links img {
+  max-width: 40px; /* Adjust as needed */
+  height: auto; /* Maintains aspect ratio */
+  margin-right: 0.5rem;
+  filter: brightness(0) invert(1);
+  margin-right: 0.5rem; /* Space between the image and text */
+}
+
+.nav-link-item {
+  display: flex;
+  flex-direction: column; 
+}
+
+.nav-link-account {
+  align-self: flex-start;
+  font-weight: 800;
+  width: 100%;
+}
+
+.nav-link-greeting {
+  align-self: flex-start;
+  
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .nav-links {
+    flex-direction: row;
+  }
+
+  .nav-links li {
+    margin: 0 0.5rem;
+  }
+}
+
+

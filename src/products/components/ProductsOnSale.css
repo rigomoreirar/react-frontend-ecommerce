@@ -1,0 +1,66 @@
+.products-on-sale .product-card {
+    position: relative;
+    padding: 15px;
+    text-align: center;
+  }
+  
+  .products-on-sale .product-card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover; /* Adjust to make image fit the card */
+    border-radius: 8px;
+  }
+  
+  /* Enhanced label style */
+  .products-on-sale .offer-percentage {
+    position: absolute;
+    top: 28px;
+    right: -10px;
+    background-color: yellow;
+    color: black;
+    padding: 8px 15px;
+    border-radius: 50%;
+    font-size: 20px;
+    transform: rotate(45deg);
+    z-index: 2; /* Ensure label is above the image */
+  }
+  
+  /* Styling for center image */
+  .slick-center .product-card img {
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1; /* Higher z-index for center image */
+  }
+  
+  /* Styling for side images */
+  .product-card img {
+    transform: scale(0.9);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Hide the right arrow */
+  .slick-next {
+    display: none;
+  }
+  
+  /* Center card specific styles */
+  .center-card {
+    z-index: 1; /* Ensure center card is on top */
+  }
+
+  @media (max-width: 1300px) {
+    .products-on-sale .product-card img {
+      transform: scale(1.0); /* Adjust size for smaller screens */
+    }
+  }
+  
+  @media (max-width: 1000px) {
+    .products-on-sale .offer-percentage {
+      font-size: 16px;
+      top: 20px;
+      right: -5px;
+      padding: 6px 12px;
+    }
+  }
+  
+  

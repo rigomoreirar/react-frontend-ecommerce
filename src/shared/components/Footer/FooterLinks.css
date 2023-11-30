@@ -1,0 +1,22 @@
+.footer-links {
+    background-color: #6e9fc1; /* Background color */
+    color: white; /* Font color */
+    display: flex; /* Aligns links horizontally */
+    justify-content: space-around; /* Spreads links evenly */
+    text-align: center;
+    width: 100%; /* Use all horizontal space */
+    padding: 2rem;
+  }
+  
+  .footer-links a {
+    color: white; /* Font color */
+    text-decoration: none; /* Removes underline */
+    transition: color 0.3s, text-decoration 0.3s; /* Smooth transition for hover effects */
+    margin-right: 1rem;;
+  }
+  
+  .footer-links a:hover {
+    color: blue; /* Font color on hover */
+    text-decoration: underline; /* Underline on hover */
+  }
+  
